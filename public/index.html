@@ -53,12 +53,24 @@
     <div class="container">
 
       <div class="starter-template">
-          <div class="row" ng-repeat="selfie in selfies">
-            <div class="col-md-4">
-              <img class="picture" ng-src="{{selfie.images.standard_resolution.url}}">
-            </div>
-          </div>
-      </div>
+        
+              
+              <img class="picture" ng-src="{{selfies[count].images.standard_resolution.url}}">
+              <br/>
+              <br/>
+
+              <button type="button" class="btn btn-default btn-lg" ng-click="count = count + 1" ng-init="count=0">
+                  <span class="glyphicon glyphicon-remove"></span> No
+              </button> 
+
+              <button type="button" class="btn btn-default btn-lg" ng-click="count = count + 1" ng-init="count=0">
+                  <span class="glyphicon glyphicon-trash"></span> Nix
+              </button>
+
+              <button type="button" class="btn btn-default btn-lg" ng-click="count = count + 1" ng-init="count=0">
+                  <span class="glyphicon glyphicon-ok"></span> Yes
+              </button>
+   </div>
 
     </div><!-- /.container -->
 
