@@ -38,13 +38,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Haterade</a>
+          <a class="navbar-brand active" href="#home">Haterade</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="active"><a href="#home">Home</a></li>
+            <li><a href="#trending">Trending</a></li>
+            <li><a href="#notsotrending">Not So Trending</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -59,15 +59,15 @@
               <br/>
               <br/>
 
-              <button type="button" class="btn btn-default btn-lg" ng-click="count = count + 1" ng-init="count=0">
+              <button type="button" class="btn btn-default btn-lg" ng-click="count = count + 1; voteOnSelfie(selfies[count], 1);" ng-init="count = 0">
                   <span class="glyphicon glyphicon-remove"></span> No
               </button> 
-
-              <button type="button" class="btn btn-default btn-lg" ng-click="count = count + 1" ng-init="count=0">
+<!-- not a selfie --> 
+              <button type="button" class="btn btn-default btn-lg" ng-click="count = count + 1; voteOnSelfie(selfies[count], 0);" ng-init="count = 0">
                   <span class="glyphicon glyphicon-trash"></span> Nix
               </button>
 
-              <button type="button" class="btn btn-default btn-lg" ng-click="count = count + 1" ng-init="count=0">
+              <button type="button" class="btn btn-default btn-lg" ng-click="count = count + 1; voteOnSelfie(selfies[count], 2);" ng-init="count = 0">
                   <span class="glyphicon glyphicon-ok"></span> Yes
               </button>
    </div>

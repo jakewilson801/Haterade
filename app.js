@@ -2,28 +2,57 @@ var express = require('express');
 var app = express();
 var request = require('request');
 var apiUrl = 'https://api.instagram.com/v1/tags/selfie/media/recent?access_token=31053992.f59def8.1ec14fa313984721b77ca9067d0c40ef'; 
-
+var mongoose = require('mongoose'); 		
+//
+//connect to local mongodb database
+mongoose.connect('mongodb://127.0.0.1:27017/selfies');
 
 app.configure(function() {
-	app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
-	app.use(express.logger('dev')); 						// log every request to the console
-	app.use(express.bodyParser()); 							// pull information from html in POST
-	app.use(express.methodOverride()); 						// simulate DELETE and PUT
+	app.use(express.static(__dirname + '/public')); 		
+	app.use(express.logger('dev')); 						
+	app.use(express.bodyParser()); 							
+	app.use(express.methodOverride()); 						
+});
+
+//attach lister to connected event
+mongoose.connection.once('connected', function() {
+	console.log("Connected to database")
 });
 
 app.get('/selfie', function(req, res){
 	request( apiUrl , function (error, response, body) {
-	  if (!error && response.statusCode == 200) {
-	    console.log(body) 
+	  if (!error && response.statusCode == 200) { 
 	    res.send(body)
 	  }
 
-	})
+	});
 });
 
-app.get('*', function(req, res) {
-		res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+var Selfie = mongoose.model('Selfie', {
+		url : String,
+		numYes: Number, 
+		numNo: Number,
+		notASelfie: Number
 });
+
+app.post('/selfie/vote', function(req, res){
+	console.log(req.body); 
+	Selfie.create({
+		url : req.body.url,
+		numYes : req.body.numYes,
+		numNo : req.body.numNo,
+		notASelfie : req.body.notASelfie
+	}, function ( err, selfie){
+		if(err)
+			console.log(err); 
+	}); 
+}); 
+
+app.get('*', function(req, res) {
+		res.sendfile('./public/index.html'); 
+});
+
+
 
 
 
