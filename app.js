@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var request = require('request');
-var apiUrl = 'https://api.instagram.com/v1/tags/selfie/media/recent?access_token=31053992.f59def8.1ec14fa313984721b77ca9067d0c40ef'; 
+var apiUrl = ''; 
 var mongoose = require('mongoose'); 		
 //
 //connect to local mongodb database
@@ -19,9 +19,12 @@ mongoose.connection.once('connected', function() {
 	console.log("Connected to database")
 });
 
-app.get('/selfie', function(req, res){
-	request( apiUrl , function (error, response, body) {
+app.post('/selfie', function(req, res){
+	if(req.body.nextUrl)
+		apiUrl = req.body.nextUrl; 
+	request( req.body.nextUrl , function (error, response, body) {
 	  if (!error && response.statusCode == 200) { 
+
 	    res.send(body)
 	  }
 

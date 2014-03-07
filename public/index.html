@@ -38,7 +38,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand active" href="#home">Haterade</a>
+          <a class="navbar-brand active" href="#home"> <span class="glyphicon glyphicon-stats"></a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -59,15 +59,15 @@
               <br/>
               <br/>
 
-              <button type="button" class="btn btn-default btn-lg" ng-click="count = count + 1; voteOnSelfie(selfies[count], 1);" ng-init="count = 0">
+              <button type="button" class="btn btn-default btn-lg" ng-click="voteOnSelfie(selfies[count], 1, count);" >
                   <span class="glyphicon glyphicon-remove"></span> No
               </button> 
 <!-- not a selfie --> 
-              <button type="button" class="btn btn-default btn-lg" ng-click="count = count + 1; voteOnSelfie(selfies[count], 0);" ng-init="count = 0">
+              <button type="button" class="btn btn-default btn-lg" ng-click="  voteOnSelfie(selfies[count], 0, count);" >
                   <span class="glyphicon glyphicon-trash"></span> Nix
               </button>
 
-              <button type="button" class="btn btn-default btn-lg" ng-click="count = count + 1; voteOnSelfie(selfies[count], 2);" ng-init="count = 0">
+              <button type="button" class="btn btn-default btn-lg" ng-click=" voteOnSelfie(selfies[count], 2, count);" >
                   <span class="glyphicon glyphicon-ok"></span> Yes
               </button>
    </div>
