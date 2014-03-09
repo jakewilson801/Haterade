@@ -4,7 +4,7 @@ var haterade = angular.module('Haterade', []);
 haterade.controller('SelfieController', function ($scope, $http) {
 	$scope.selfie = {};  
     $scope.nextUrl = ''; 
-    $scope.count = 10; 
+    $scope.count = 0; 
 
     fetchData($http, $scope, 'https://api.instagram.com/v1/tags/selfie/media/recent?client_id=339b727c83104de1aecd91778ab4daae');
 
@@ -45,7 +45,7 @@ haterade.controller('SelfieController', function ($scope, $http) {
 		if(($scope.count - 1) == 19){
 			console.log($scope.nextUrl)
 			fetchData($http, $scope, $scope.nextUrl); 
-			$scope.count = 19; 
+			$scope.count = 0; 
 		}
 
 		
