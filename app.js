@@ -5,7 +5,7 @@ var apiUrl = '';
 //var mongoose = require('mongoose'); 		
 //
 //connect to local mongodb database
-mongoose.connect('mongodb://127.0.0.1:27017/test');
+//mongoose.connect('mongodb://127.0.0.1:27017/test');
 
 app.configure(function() {
 	app.use(express.static(__dirname + '/public')); 		
