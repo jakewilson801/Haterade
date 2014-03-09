@@ -57,17 +57,19 @@
               
               <img class="picture" ng-src="{{selfies[count].images.standard_resolution.url}}">
               <br/>
-              <br/>
+            
 
-              <label></label> 
+              
+                    <br/>
+                    <h2>@{{selfies[count].user.username}}</h2>
               <br/>
-
-                <button type="button" class="btn btn-default btn-lg" ng-click="  voteOnSelfie(selfies[count], 0, count);" >
-                  <span class="glyphicon glyphicon-trash"></span> Not a Selfie
-              </button>
               <button type="button" class="btn btn-default btn-lg" ng-click="voteOnSelfie(selfies[count], 1, count);" >
                   <span class="glyphicon glyphicon-remove"></span> No
               </button> 
+                <button type="button" class="btn btn-default btn-lg" ng-click="  voteOnSelfie(selfies[count], 0, count);" >
+                  <span class="glyphicon glyphicon-trash"></span> Not a Selfie
+              </button>
+       
              
               <button type="button" class="btn btn-default btn-lg" ng-click=" voteOnSelfie(selfies[count], 2, count);" >
                   <span class="glyphicon glyphicon-ok"></span> Yes
