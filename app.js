@@ -20,34 +20,38 @@ mongoose.connection.once('connected', function() {
 });
 
 app.post('/selfie', function(req, res){
-	if(req.body.nextUrl)
-		apiUrl = req.body.nextUrl; 
+	
 	request( req.body.nextUrl , function (error, response, body) {
 	  if (!error && response.statusCode == 200) { 
-
 	    res.send(body)
+	  }else{
+	  	console.log(error);
 	  }
 
 	});
+	console.log('fetched pics');
 });
 
 var Selfie = mongoose.model('Selfie', {
 		url : String,
 		numYes: Number, 
 		numNo: Number,
-		notASelfie: Number
+		notASelfie: Number,
+		parentData: Object
 });
 
 app.post('/selfie/vote', function(req, res){
-	console.log(req.body); 
+	
 	Selfie.create({
 		url : req.body.url,
 		numYes : req.body.numYes,
 		numNo : req.body.numNo,
-		notASelfie : req.body.notASelfie
+		notASelfie : req.body.notASelfie,
+		parentData : req.body.parentData
 	}, function ( err, selfie){
 		if(err)
 			console.log(err); 
+		console.log('VOTED'); 
 	}); 
 }); 
 

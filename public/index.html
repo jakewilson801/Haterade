@@ -59,17 +59,22 @@
               <br/>
               <br/>
 
+              <label></label> 
+              <br/>
+
+                <button type="button" class="btn btn-default btn-lg" ng-click="  voteOnSelfie(selfies[count], 0, count);" >
+                  <span class="glyphicon glyphicon-trash"></span> Not a Selfie
+              </button>
               <button type="button" class="btn btn-default btn-lg" ng-click="voteOnSelfie(selfies[count], 1, count);" >
                   <span class="glyphicon glyphicon-remove"></span> No
               </button> 
-<!-- not a selfie --> 
-              <button type="button" class="btn btn-default btn-lg" ng-click="  voteOnSelfie(selfies[count], 0, count);" >
-                  <span class="glyphicon glyphicon-trash"></span> Nix
-              </button>
-
+             
               <button type="button" class="btn btn-default btn-lg" ng-click=" voteOnSelfie(selfies[count], 2, count);" >
                   <span class="glyphicon glyphicon-ok"></span> Yes
               </button>
+      
+
+             
    </div>
 
     </div><!-- /.container -->
