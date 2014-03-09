@@ -42,17 +42,17 @@ var Selfie = mongoose.model('Selfie', {
 
 app.post('/selfie/vote', function(req, res){
 	
-	Selfie.create({
-		url : req.body.url,
-		numYes : req.body.numYes,
-		numNo : req.body.numNo,
-		notASelfie : req.body.notASelfie,
-		parentData : req.body.parentData
-	}, function ( err, selfie){
-		if(err)
-			console.log(err); 
-		console.log('VOTED'); 
-	}); 
+	// Selfie.create({
+	// 	url : req.body.url,
+	// 	numYes : req.body.numYes,
+	// 	numNo : req.body.numNo,
+	// 	notASelfie : req.body.notASelfie,
+	// 	parentData : req.body.parentData
+	// }, function ( err, selfie){
+	// 	if(err)
+	// 		console.log(err); 
+	// 	console.log('VOTED'); 
+	// }); 
 }); 
 
 app.get('*', function(req, res) {
