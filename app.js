@@ -56,7 +56,6 @@ app.post('/selfie/vote', function(req, res){
 			res.send(err); 
 		res.send("biscuits"); 
 	}); 
-	res.send(err);
 }); 
 
 app.get('*', function(req, res) {
