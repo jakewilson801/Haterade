@@ -5,13 +5,16 @@ var apiUrl = '';
 var mongoose = require('mongoose'); 		
 //
 //connect to local mongodb database
-mongoose.connect('mongodb://127.0.0.1:27017/selfies');
+mongoose.connect('mongodb://127.0.0.1:27017/test');
 
 app.configure(function() {
 	app.use(express.static(__dirname + '/public')); 		
 	app.use(express.logger('dev')); 						
-	app.use(express.bodyParser()); 							
+	//app.use(express.bodyParser()); 
+		app.use(express.json());
+	app.use(express.urlencoded());							
 	app.use(express.methodOverride()); 						
+
 });
 
 //attach lister to connected event
