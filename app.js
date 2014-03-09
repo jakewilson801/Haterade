@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var request = require('request');
 var apiUrl = ''; 
-var mongoose = require('mongoose'); 		
+//var mongoose = require('mongoose'); 		
 //
 //connect to local mongodb database
 mongoose.connect('mongodb://127.0.0.1:27017/test');
@@ -11,16 +11,16 @@ app.configure(function() {
 	app.use(express.static(__dirname + '/public')); 		
 	app.use(express.logger('dev')); 						
 	//app.use(express.bodyParser()); 
-		app.use(express.json());
+	app.use(express.json());
 	app.use(express.urlencoded());							
 	app.use(express.methodOverride()); 						
 
 });
 
 //attach lister to connected event
-mongoose.connection.once('connected', function() {
-	console.log("Connected to database")
-});
+// mongoose.connection.once('connected', function() {
+// 	console.log("Connected to database")
+// });
 
 app.post('/selfie', function(req, res){
 	
@@ -35,13 +35,13 @@ app.post('/selfie', function(req, res){
 	console.log('fetched pics');
 });
 
-var Selfie = mongoose.model('Selfie', {
-		url : String,
-		numYes: Number, 
-		numNo: Number,
-		notASelfie: Number,
-		parentData: Object
-});
+// var Selfie = mongoose.model('Selfie', {
+// 		url : String,
+// 		numYes: Number, 
+// 		numNo: Number,
+// 		notASelfie: Number,
+// 		parentData: Object
+// });
 
 app.post('/selfie/vote', function(req, res){
 	
