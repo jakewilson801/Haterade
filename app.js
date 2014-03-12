@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var request = require('request');
 var mongoose = require('mongoose'); 		
-//
+
 //connect to local mongodb database
 mongoose.connect('mongodb://127.0.0.1:27017/test');
 
@@ -19,8 +19,7 @@ mongoose.connection.once('connected', function() {
 	console.log("Connected to database")
 });
 
-app.post('/selfie', function(req, res){
-	
+app.post('/selfie', function(req, res){	
 	request( req.body.nextUrl , function (error, response, body) {
 	  if (!error && response.statusCode == 200) { 
 	    res.send(body)
@@ -50,7 +49,7 @@ app.post('/selfie/vote', function(req, res){
 		notASelfie : req.body.notASelfie,
 		parentData : req.body.parentData,
 		batchUrl : req.body.batchUrl
-	}, function ( err, selfie){
+	}, function (err, selfie){
 		if(err)
 			res.send(err); 
 		res.send("biscuits"); 

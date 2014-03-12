@@ -11,7 +11,7 @@
     <title>Haterade</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="/css/starter-template.css" rel="stylesheet">
@@ -28,64 +28,44 @@
   </head>
 
   <body ng-controller="SelfieController">
-
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
       <div class="container">
-        <div class="navbar-header">
+        <div class="navbar-header" >
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand active" href="#home"> <span class="glyphicon glyphicon-stats"></a>
+          <a class="navbar-brand" style="color:#FFFFFF;"> <span class="glyphicon glyphicon-stats"> Selfie-Election</a>
         </div>
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" >
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#home">Home</a></li>
+<!--             <li class="active"><a href="#home">Home</a></li>
             <li><a href="#trending">Trending</a></li>
-            <li><a href="#notsotrending">Not So Trending</a></li>
+            <li><a href="#notsotrending">Not So Trending</a></li> -->
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
     <div class="container">
-
       <div class="starter-template">
-        
-              
               <img class="picture" ng-src="{{selfies[count].images.standard_resolution.url}}">
               <br/>
-            
-
-              
-                    <br/>
-                    <h2>@{{selfies[count].user.username}}</h2>
+              <br/>
+                    
               <br/>
               <button type="button" class="btn btn-default btn-lg" ng-click="voteOnSelfie(selfies[count], 1, count);" >
                   <span class="glyphicon glyphicon-remove"></span> No
               </button> 
-                <button type="button" class="btn btn-default btn-lg" ng-click="  voteOnSelfie(selfies[count], 0, count);" >
-                  <span class="glyphicon glyphicon-trash"></span> Not a Selfie
+                <button type="button" class="btn btn-default btn-lg" ng-click="voteOnSelfie(selfies[count], 0, count);" >
+                  <span class="glyphicon glyphicon-trash"></span> Selfie?
               </button>
-       
-             
-              <button type="button" class="btn btn-default btn-lg" ng-click=" voteOnSelfie(selfies[count], 2, count);" >
+              <button type="button" class="btn btn-default btn-lg" ng-click="voteOnSelfie(selfies[count], 2, count);" >
                   <span class="glyphicon glyphicon-ok"></span> Yes
               </button>
-      
-
-             
-   </div>
-
-    </div><!-- /.container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-   
-    
-  </body>
+       </div>
+    </div>
+</body>
 </html>
