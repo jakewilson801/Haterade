@@ -4,8 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Selfielection allows users to vote anonymously on selfies from instagram.">
+    <meta name="keywords" content="selfie, selfies, #selfie, #selfies, instagram, vote, hot or not, selfie olympics, vote, favorite selfie" />
     <meta name="author" content="">
+    <meta name="robots" content="index, follow" />
+    <meta name="revisit-after" content="3 month" />
+    <!-- selfie, #selfie, selfies --><cmt>
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
     <title>Selfielection</title>
@@ -67,14 +71,14 @@
               <br/>
                     
               <br/>
-              <button type="button" class="btn btn-default btn-lg" ng-click="voteOnSelfie(selfies[count], 1, count);" >
-                  <span class="glyphicon glyphicon-remove"></span> No
-              </button> 
-                <button type="button" class="btn btn-default btn-lg" ng-click="voteOnSelfie(selfies[count], 0, count);" >
-                  <span class="glyphicon glyphicon-trash"></span> Selfie?
+              <button type="button" class="btn btn-default btn-lg" ng-click="voteOnSelfie(selfies[count], 0, count);" >
+                  <span class="glyphicon glyphicon-ban-circle"></span>
               </button>
+              <button type="button" class="btn btn-default btn-lg" ng-click="voteOnSelfie(selfies[count], 1, count);" >
+                  <span class="glyphicon glyphicon-remove-circle"></span>
+              </button> 
               <button type="button" class="btn btn-default btn-lg" ng-click="voteOnSelfie(selfies[count], 2, count);" >
-                  <span class="glyphicon glyphicon-ok"></span> Yes
+                  <span class="glyphicon glyphicon-ok-circle"></span>
               </button>
        </div>
     </div>
